@@ -27,8 +27,16 @@ public interface IGrid
     /// </summary>
     void DeleteFullRows();
 
+    /// <summary>
+    /// Return width
+    /// </summary>
+    /// <returns></returns>
     int GetWidth();
 
+    /// <summary>
+    /// Return height
+    /// </summary>
+    /// <returns></returns>
     int GetHeight();
 }
 
@@ -61,7 +69,8 @@ public class TetrisGrid : IGrid
         {
             for (int j = 0; j < _height; j++)
             {
-                if (_arrayOfGridCells[i, j] != null && _arrayOfGridCells[i, j].parent == figure)
+                if (_arrayOfGridCells[i, j] != null &&
+                    _arrayOfGridCells[i, j].parent == figure)
                 {
                     _arrayOfGridCells[i, j] = null;
                 }
@@ -97,6 +106,7 @@ public class TetrisGrid : IGrid
         {
             Vector2 positionChild = roundVector2(child.position);
 
+            Debug.Log(positionChild.x);
             if (positionChild.x < 0 || positionChild.x >= _width)
             {
                 return false;
@@ -184,7 +194,6 @@ public class TetrisGrid : IGrid
         return new Vector2(Mathf.Round(v.x), Mathf.Round(v.y));
     }
 
-
     public int GetWidth()
     {
         return _width;
@@ -225,7 +234,8 @@ public class TetrisGridV2 : IGrid
         {
             for (int j = 0; j < _height; j++)
             {
-                if (_arrayOfGridCells[i, j] != null && _arrayOfGridCells[i, j].parent == figure)
+                if (_arrayOfGridCells[i, j] != null &&
+                    _arrayOfGridCells[i, j].parent == figure)
                 {
                     _arrayOfGridCells[i, j] = null;
                 }
@@ -309,7 +319,7 @@ public class TetrisGridV2 : IGrid
                             _graphic.DeleteRow(j, _arrayOfGridCells);
                             lowerRows(j);
                             _userParameter.AddScorePoint(1);
-                            --i;
+                            --j;
                         }
                     }
                     countFullRows = 0;

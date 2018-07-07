@@ -55,12 +55,15 @@ public class FigureMovement : IMovement
 	{
         figure.Rotate(new Vector3(0, 0, -90));
 
-        if (!_grid.CheckForInsideBorder(figure) || 
+        if (!_grid.CheckForInsideBorder(figure) ||
             !_grid.CheckForCollisionWithFigureOrFloor(figure))
         {
             figure.Rotate(new Vector3(0, 0, 90));
         }
-        _grid.UpdateGrid(figure);
+        else
+        {
+            _grid.UpdateGrid(figure);
+        }
     }
 
     public bool FallFigure(Transform figure)
@@ -80,7 +83,6 @@ public class FigureMovement : IMovement
     }
 }
 
-
 public class FigureMovementV2 : IMovement
 {
     private IGrid _grid;
@@ -96,7 +98,42 @@ public class FigureMovementV2 : IMovement
 
     public void MoveFigureHorizontally(Transform figure, int direction)
     {
+        figure.position += new Vector3(direction, 0, 0);
 
+        if (figure.position.x >= _grid.GetWidth() || figure.position.x < 0)
+        {
+            figure.position += new Vector3(-direction * _grid.GetWidth(), 0, 0);
+
+            foreach (Transform child in figure)
+            {
+                Vector2 positionChild = roundVector2(child.position);
+
+                if (positionChild.x >= _grid.GetWidth() || positionChild.x < 0)
+                {
+                    child.position += new Vector3(direction * _grid.GetWidth(), 0, 0);
+                }
+            }
+        }
+        else
+        {
+            foreach (Transform child in figure)
+            {
+                Vector2 positionChild = roundVector2(child.position);
+
+                if (positionChild.x >= _grid.GetWidth() || positionChild.x < 0)
+                {
+                    child.position += new Vector3(-direction * _grid.GetWidth(), 0, 0);
+                }
+            }
+        }
+        if (_grid.CheckForCollisionWithFigureOrFloor(figure))
+        {
+            _grid.UpdateGrid(figure);
+        }
+        else
+        {
+            MoveFigureHorizontally(figure, -direction);
+        }
     }
 
     public void RotateFigure(Transform figure)
@@ -108,7 +145,10 @@ public class FigureMovementV2 : IMovement
         {
             figure.Rotate(new Vector3(0, 0, 90));
         }
-        _grid.UpdateGrid(figure);
+        else
+        {
+            _grid.UpdateGrid(figure);
+        }
     }
 
     public bool FallFigure(Transform figure)
@@ -125,6 +165,11 @@ public class FigureMovementV2 : IMovement
             figure.position += Vector3.up;
             return true;
         }
+    }
+
+    private Vector2 roundVector2(Vector2 v)
+    {
+        return new Vector2(Mathf.Round(v.x), Mathf.Round(v.y));
     }
 }
 
