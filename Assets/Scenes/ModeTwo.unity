@@ -207,28 +207,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Figures:
-  - FigureObject: {fileID: 1249301300491860, guid: f84b3d3c4eeaef04093da8041e8017ae,
+  - FigureObject: {fileID: 1036009252730890, guid: f11fd5d8a2a284f41a474a1995adadc6,
       type: 2}
     Probability: 10
-  - FigureObject: {fileID: 1174018700155480, guid: f11fd5d8a2a284f41a474a1995adadc6,
+  - FigureObject: {fileID: 1445639805742380, guid: f84b3d3c4eeaef04093da8041e8017ae,
       type: 2}
     Probability: 10
-  - FigureObject: {fileID: 1196113777687862, guid: 3d0ad91f89d618848bf434835a3ce301,
+  - FigureObject: {fileID: 1411609336070878, guid: 3d0ad91f89d618848bf434835a3ce301,
       type: 2}
     Probability: 15
-  - FigureObject: {fileID: 1562619873377920, guid: f9b4dfcf8146df143b7f8eca471c8b9a,
+  - FigureObject: {fileID: 1819225887424010, guid: f9b4dfcf8146df143b7f8eca471c8b9a,
       type: 2}
     Probability: 15
-  - FigureObject: {fileID: 1718662220935464, guid: ba081b12160ad9d4aa181cc1a625d742,
+  - FigureObject: {fileID: 1666047564516700, guid: ba081b12160ad9d4aa181cc1a625d742,
       type: 2}
     Probability: 15
-  - FigureObject: {fileID: 1848127592242220, guid: 9fca82a7ec99ffb4ea5d24b4a778026d,
+  - FigureObject: {fileID: 1881583325904138, guid: 9fca82a7ec99ffb4ea5d24b4a778026d,
       type: 2}
     Probability: 15
   - FigureObject: {fileID: 1539684222665370, guid: 54634f4929a000f42b849b48fc8903f4,
       type: 2}
     Probability: 5
-  - FigureObject: {fileID: 1381593318434040, guid: 260874f4cb7694f459325803d41d8e07,
+  - FigureObject: {fileID: 1329046103924198, guid: 260874f4cb7694f459325803d41d8e07,
       type: 2}
     Probability: 5
   - FigureObject: {fileID: 1794582568380686, guid: ce19ec2b2c7af27479cbad88275af8a7,
@@ -237,7 +237,7 @@ MonoBehaviour:
   - FigureObject: {fileID: 1753055993929542, guid: ae72c20159e5447428d60f53814206b9,
       type: 2}
     Probability: 5
-  GridCell: {fileID: 1395004291240218, guid: 84e73d06ced1d1e48aa27aa4cfa9b624, type: 2}
+  GridCell: {fileID: 1374480221558206, guid: 84e73d06ced1d1e48aa27aa4cfa9b624, type: 2}
   Speed: 2
 --- !u!1 &730218803
 GameObject:

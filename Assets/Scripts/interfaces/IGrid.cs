@@ -26,7 +26,6 @@ public interface IGrid
     /// Deletes all full rows
     /// </summary>
     void DeleteFullRows();
-<<<<<<< HEAD
 
     /// <summary>
     /// Return width
@@ -39,8 +38,6 @@ public interface IGrid
     /// </summary>
     /// <returns></returns>
     int GetHeight();
-=======
->>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
 }
 
 public class TetrisGrid : IGrid
@@ -48,10 +45,7 @@ public class TetrisGrid : IGrid
 	private int _width, _height;
 	private Transform[,] _arrayOfGridCells;
     private IGraphic _graphic;
-<<<<<<< HEAD
     private IUserParameter _userParameter;
-=======
->>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
 
     /// <summary>
     /// Instance the grid
@@ -59,20 +53,15 @@ public class TetrisGrid : IGrid
     /// <param name="width">width</param>
     /// <param name="height">height</param>
     /// <param name="iGraphic">Instance o type "IGraphic"</param>
-<<<<<<< HEAD
     /// <param name="userInterface">Instance of type "IUserInterface"</param>
 	public TetrisGrid(int width, int height, IGraphic iGraphic, IUserParameter userParameter)
-=======
-	public TetrisGrid(int width, int height, IGraphic iGraphic)
->>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
 	{
 		_width = width;
 		_height = height;
         _graphic = iGraphic;
-<<<<<<< HEAD
+
         _userParameter = userParameter;
-=======
->>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
+
 		_arrayOfGridCells = new Transform[_width, _height];
 	}
 
@@ -82,12 +71,8 @@ public class TetrisGrid : IGrid
         {
             for (int j = 0; j < _height; j++)
             {
-<<<<<<< HEAD
                 if (_arrayOfGridCells[i, j] != null &&
                     _arrayOfGridCells[i, j].parent == figure)
-=======
-                if (_arrayOfGridCells[i, j] != null && _arrayOfGridCells[i, j].parent == figure)
->>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
                 {
                     _arrayOfGridCells[i, j] = null;
                 }
@@ -96,11 +81,7 @@ public class TetrisGrid : IGrid
 
         foreach (Transform child in figure)
         {
-<<<<<<< HEAD
             Vector2 positionChild = VectorsMath.RoundVector2(child.position);
-=======
-            Vector2 positionChild = roundVector2(child.position);
->>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
             _arrayOfGridCells[(int)positionChild.x, (int)positionChild.y] = child;
         }
 
@@ -123,18 +104,10 @@ public class TetrisGrid : IGrid
 
     public bool CheckForInsideBorder(Transform figure)
     {
-<<<<<<< HEAD
         foreach (Transform child in figure)
         {
             Vector2 positionChild = VectorsMath.RoundVector2(child.position);
 
-            Debug.Log(positionChild.x);
-=======
-        foreach(Transform child in figure)
-        {
-            Vector2 positionChild = roundVector2(child.position);
-
->>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
             if (positionChild.x < 0 || positionChild.x >= _width)
             {
                 return false;
@@ -147,11 +120,7 @@ public class TetrisGrid : IGrid
     {
         foreach (Transform child in figure)
         {
-<<<<<<< HEAD
             Vector2 positionChild = VectorsMath.RoundVector2(child.position);
-=======
-            Vector2 positionChild = roundVector2(child.position);
->>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
 
             if (positionChild.y < 0)
             {
@@ -175,15 +144,10 @@ public class TetrisGrid : IGrid
         {
             if(isRowFull(i))
             {
-<<<<<<< HEAD
                 _userParameter.AddScorePoint(1);
                 _graphic.DeleteRow(i, _arrayOfGridCells);
                 lowerRows(i);
                 --i;
-=======
-                _graphic.DeleteRow(i, _arrayOfGridCells);
-                lowerRows(i);
->>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
             }
         }
     }
@@ -226,7 +190,6 @@ public class TetrisGrid : IGrid
         }
     }
 
-<<<<<<< HEAD
     public int GetWidth()
     {
         return _width;
@@ -409,11 +372,4 @@ public class TetrisGridV2 : IGrid
     {
         return _height;
     }
-
-=======
-    private Vector2 roundVector2(Vector2 v)
-    {
-        return new Vector2(Mathf.Round(v.x), Mathf.Round(v.y));
-    }
->>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
 }
