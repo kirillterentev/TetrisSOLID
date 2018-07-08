@@ -6,8 +6,13 @@ public interface IMovement
 	/// Moves the figure horizontally.
 	/// </summary>
 	/// <param name="figure">Figure.</param>
+<<<<<<< HEAD
     /// <param name="direction">1 - right, -1 - left</param>
 	void MoveFigureHorizontally (Transform figure, int direction);
+=======
+    /// <param name="direction">true - right, false - left</param>
+	void MoveFigureHorizontally (Transform figure, bool direction);
+>>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
 
 	/// <summary>
 	/// Rotates the figure.
@@ -36,6 +41,7 @@ public class FigureMovement : IMovement
         _grid = iGrid;
     }
 
+<<<<<<< HEAD
 	public void MoveFigureHorizontally(Transform figure, int direction)
 	{
         figure.position += new Vector3(direction, 0, 0);
@@ -144,6 +150,44 @@ public class FigureMovementV2 : IMovement
 
         if (!_grid.CheckForInsideBorder(figure) ||
             !_grid.CheckForCollisionWithFigureOrFloor(figure))
+=======
+	public void MoveFigureHorizontally(Transform figure, bool direction)
+	{
+		if (!direction) 
+		{
+            figure.position += Vector3.left;
+
+            if(!_grid.CheckForInsideBorder(figure) || !_grid.CheckForCollisionWithFigureOrFloor(figure))
+            {
+                figure.position += Vector3.right;
+            }
+            else
+            {
+                _grid.UpdateGrid(figure);
+            }
+        }
+		else
+		{
+            figure.position += Vector3.right;
+
+            if (!_grid.CheckForInsideBorder(figure) ||
+                !_grid.CheckForCollisionWithFigureOrFloor(figure))
+            {
+                figure.position += Vector3.left;
+            }
+            else
+            {
+                _grid.UpdateGrid(figure);
+            }
+        }
+	}
+
+	public void RotateFigure(Transform figure)
+	{
+        figure.Rotate(new Vector3(0, 0, -90));
+
+        if (!_grid.CheckForInsideBorder(figure) || !_grid.CheckForCollisionWithFigureOrFloor(figure))
+>>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
         {
             figure.Rotate(new Vector3(0, 0, 90));
         }
@@ -151,7 +195,11 @@ public class FigureMovementV2 : IMovement
         {
             _grid.UpdateGrid(figure);
         }
+<<<<<<< HEAD
     }
+=======
+	}
+>>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
 
     public bool FallFigure(Transform figure)
     {
@@ -169,4 +217,7 @@ public class FigureMovementV2 : IMovement
         }
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 59e48246e7cf9f10f5abcae490388e0481106080
