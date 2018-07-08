@@ -102,11 +102,12 @@ public class FigureMovementV2 : IMovement
 
         if (figure.position.x >= _grid.GetWidth() || figure.position.x < 0)
         {
+            //Смещаем родителя, а всё что осталось за границами возвращаем обратно
             figure.position += new Vector3(-direction * _grid.GetWidth(), 0, 0);
 
             foreach (Transform child in figure)
             {
-                Vector2 positionChild = roundVector2(child.position);
+                Vector2 positionChild = VectorsMath.RoundVector2(child.position);
 
                 if (positionChild.x >= _grid.GetWidth() || positionChild.x < 0)
                 {
@@ -116,9 +117,10 @@ public class FigureMovementV2 : IMovement
         }
         else
         {
+            //смещаем дочерние объекты
             foreach (Transform child in figure)
             {
-                Vector2 positionChild = roundVector2(child.position);
+                Vector2 positionChild = VectorsMath.RoundVector2(child.position);
 
                 if (positionChild.x >= _grid.GetWidth() || positionChild.x < 0)
                 {
@@ -165,11 +167,6 @@ public class FigureMovementV2 : IMovement
             figure.position += Vector3.up;
             return true;
         }
-    }
-
-    private Vector2 roundVector2(Vector2 v)
-    {
-        return new Vector2(Mathf.Round(v.x), Mathf.Round(v.y));
     }
 }
 

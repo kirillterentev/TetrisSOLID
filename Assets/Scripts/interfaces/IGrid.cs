@@ -79,7 +79,7 @@ public class TetrisGrid : IGrid
 
         foreach (Transform child in figure)
         {
-            Vector2 positionChild = roundVector2(child.position);
+            Vector2 positionChild = VectorsMath.RoundVector2(child.position);
             _arrayOfGridCells[(int)positionChild.x, (int)positionChild.y] = child;
         }
 
@@ -104,7 +104,7 @@ public class TetrisGrid : IGrid
     {
         foreach (Transform child in figure)
         {
-            Vector2 positionChild = roundVector2(child.position);
+            Vector2 positionChild = VectorsMath.RoundVector2(child.position);
 
             Debug.Log(positionChild.x);
             if (positionChild.x < 0 || positionChild.x >= _width)
@@ -119,7 +119,7 @@ public class TetrisGrid : IGrid
     {
         foreach (Transform child in figure)
         {
-            Vector2 positionChild = roundVector2(child.position);
+            Vector2 positionChild = VectorsMath.RoundVector2(child.position);
 
             if (positionChild.y < 0)
             {
@@ -189,11 +189,6 @@ public class TetrisGrid : IGrid
         }
     }
 
-    private Vector2 roundVector2(Vector2 v)
-    {
-        return new Vector2(Mathf.Round(v.x), Mathf.Round(v.y));
-    }
-
     public int GetWidth()
     {
         return _width;
@@ -244,7 +239,7 @@ public class TetrisGridV2 : IGrid
 
         foreach (Transform child in figure)
         {
-            Vector2 positionChild = roundVector2(child.position);
+            Vector2 positionChild = VectorsMath.RoundVector2(child.position);
             _arrayOfGridCells[(int)positionChild.x, (int)positionChild.y] = child;
         }
 
@@ -269,7 +264,7 @@ public class TetrisGridV2 : IGrid
     {
         foreach (Transform child in figure)
         {
-            Vector2 positionChild = roundVector2(child.position);
+            Vector2 positionChild = VectorsMath.RoundVector2(child.position);
 
             if (positionChild.x < 0 || positionChild.x >= _width)
             {
@@ -283,7 +278,7 @@ public class TetrisGridV2 : IGrid
     {
         foreach (Transform child in figure)
         {
-            Vector2 positionChild = roundVector2(child.position);
+            Vector2 positionChild = VectorsMath.RoundVector2(child.position);
 
             if (positionChild.y < 0)
             {
@@ -365,11 +360,6 @@ public class TetrisGridV2 : IGrid
                 }
             }
         }
-    }
-
-    private Vector2 roundVector2(Vector2 v)
-    {
-        return new Vector2(Mathf.Round(v.x), Mathf.Round(v.y));
     }
 
     public int GetWidth()

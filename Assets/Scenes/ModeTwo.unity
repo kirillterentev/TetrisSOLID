@@ -189,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 184760989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 9.5, z: -18}
+  m_LocalPosition: {x: 6, y: 9.5, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -608,6 +608,26 @@ Prefab:
     - target: {fileID: 1238266651814776, guid: 531f3f9817b832a4a87d6c3511e3e40a, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114486395967082210, guid: 531f3f9817b832a4a87d6c3511e3e40a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1681782849}
+    - target: {fileID: 114486395967082210, guid: 531f3f9817b832a4a87d6c3511e3e40a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinuePlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 114920613018646362, guid: 531f3f9817b832a4a87d6c3511e3e40a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1681782849}
+    - target: {fileID: 114920613018646362, guid: 531f3f9817b832a4a87d6c3511e3e40a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 531f3f9817b832a4a87d6c3511e3e40a, type: 2}
